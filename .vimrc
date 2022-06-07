@@ -6,9 +6,13 @@ set ruler
 set number relativenumber
 set showcmd
 set incsearch
-set hlsearch
+set nohlsearch
 set mouse=a
 set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smartindent
+set expandtab
 set encoding=UTF-8
 set vb 
 set spelllang=en_us
@@ -16,6 +20,21 @@ set clipboard=unnamed
 set noscrollbind
 set wildmenu
 set autochdir
+set exrc 
+set nu 
+set hidden
+set noerrorbells
+set nowrap
+set nobackup
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set termguicolors
+set scrolloff=8
+set noshowmode
+set completeopt=menuone,noinsert,noselect
+set signcolumn=yes
 
 " No more Arrow Keys, deal with it
 noremap <Up> <NOP>
@@ -85,6 +104,7 @@ call plug#begin()
   Plug 'kien/ctrlp.vim'
   "Plug 'ycm-core/YouCompleteMe'"
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'mbbill/undotree'
 
   " --- Golang --- "
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -147,3 +167,7 @@ augroup mydelimitMate
   au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
   au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
 augroup END
+
+" --- UndoTree --- "
+nnoremap <F5> :UndotreeToggle<CR>
+
